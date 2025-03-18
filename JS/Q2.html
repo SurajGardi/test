@@ -1,0 +1,43 @@
+write a javascript function to get the first element of an array. 
+passing the parameter 'n' will return the first 'n' elements of the array.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get First N Elements</title>
+</head>
+<body>
+
+    <h2>Get First N Elements from an Array</h2>
+    <p>Predefined Array: <strong>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</strong></p>
+
+    <label for="numInput">Enter a number (N): </label>
+    <input type="number" id="numInput" min="0" max="10">
+    <button onclick="getFirstN()">Get Elements</button>
+
+    <p id="result"></p>
+
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        function getFirstElements(arr, n = 1) {
+            return arr.slice(0, n);
+        }
+
+        function getFirstN() {
+            let n = parseInt(document.getElementById("numInput").value);
+            
+            if (isNaN(n) || n < 0) {
+                document.getElementById("result").textContent = "Please enter a valid positive number.";
+                return;
+            }
+
+            let result = getFirstElements(arr, n);
+            document.getElementById("result").textContent = `First ${n} elements: [${result}]`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+write a javascript program that accepts a string as input and swaps the case of each character.
+ for example, if you input "The Quick Brown Fox" the output should be "tHE qUICK bROWN fOX"
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Case</title>
+</head>
+<body>
+
+    <h2>Swap Case of Each Character</h2>
+    <label for="textInput">Enter a string:</label>
+    <input type="text" id="textInput" placeholder="Type here...">
+    <button onclick="swapCase()">Swap Case</button>
+
+    <p id="result"></p>
+
+    <script>
+        function swapCase() {
+            let inputText = document.getElementById("textInput").value;
+            let swappedText = inputText.split('')
+                .map(char => char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase())
+                .join('');
+
+            document.getElementById("result").textContent = `Swapped: ${swappedText}`;
+        }
+    </script>
+
+</body>
+</html>

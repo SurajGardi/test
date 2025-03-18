@@ -1,0 +1,35 @@
+<!-- Q1 . write a javascript function to check whether an input is an array or not -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Array</title>
+</head>
+<body>
+
+    <h2>Check if Input is an Array</h2>
+    <input type="text" id="userInput" placeholder='Enter a value (e.g. [1,2,3])'>
+    <button onclick="checkArray()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function isArray(input) {
+            try {
+                let parsedInput = JSON.parse(input);
+                return Array.isArray(parsedInput);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function checkArray() {
+            let inputValue = document.getElementById("userInput").value;
+            let resultText = isArray(inputValue) ? "It is an array!" : "It is NOT an array!";
+            document.getElementById("result").textContent = resultText;
+        }
+    </script>
+
+</body>
+</html>

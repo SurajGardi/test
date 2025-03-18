@@ -1,0 +1,56 @@
+write a javascript program to find a pair of elements (indices of the two numbers) 
+in a given array whose sum equals a specific target number.
+Input: numbers=[10,20,10,40,50,60,70], target=50
+output: 2,3
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find All Pairs</title>
+</head>
+<body>
+
+    <h2>Find All Pairs of Indices</h2>
+
+    <label>Enter Numbers (comma-separated): </label>
+    <input type="text" id="numbersInput" placeholder="e.g., 10,20,10,40,50,60,70">
+    <br><br>
+
+    <label>Enter Target Sum: </label>
+    <input type="number" id="targetInput">
+    <button onclick="findPair()">Find Pairs</button>
+
+    <p id="result"></p>
+
+    <script>
+        function findPair() {
+            let numbersInput = document.getElementById("numbersInput").value;
+            let numbers = numbersInput.split(',').map(Number); // Convert input string to array of numbers
+            let target = parseInt(document.getElementById("targetInput").value);
+
+            if (numbers.length < 2) {
+                document.getElementById("result").textContent = "Please enter at least two numbers.";
+                return;
+            }
+
+            let foundPairs = [];
+            for (let i = 0; i < numbers.length; i++) {
+                for (let j = i + 1; j < numbers.length; j++) {
+                    if (numbers[i] + numbers[j] === target) {
+                        foundPairs.push(`(${i}, ${j})`); // Store the pair of indices
+                    }
+                }
+            }
+
+            if (foundPairs.length > 0) {
+                document.getElementById("result").textContent = `Pairs: ${foundPairs.join(', ')}`;
+            } else {
+                document.getElementById("result").textContent = "No pairs found.";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+write a javascript function that merges two arrays and removes all duplicate elements.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Arrays</title>
+</head>
+<body>
+
+    <h2>Merge Two Arrays & Remove Duplicates</h2>
+
+    <input type="text" id="array1" placeholder="Enter first array (e.g., 1,2,3)">
+    <input type="text" id="array2" placeholder="Enter second array (e.g., 3,4,5)">
+    <button onclick="mergeArrays()">Merge</button>
+
+    <p id="result"></p>
+
+    <script>
+        function mergeArrays() {
+            let arr1 = document.getElementById("array1").value.split(',').map(Number);
+            let arr2 = document.getElementById("array2").value.split(',').map(Number);
+
+            let mergedArray = [...new Set([...arr1, ...arr2])]; // Merge & remove duplicates
+            document.getElementById("result").textContent = `Merged Array: ${mergedArray}`;
+        }
+    </script>
+
+</body>
+</html>
